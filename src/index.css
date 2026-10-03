@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-burgundy: #59212C;
+    --color-limestone: #E0D9C9;
+    --color-forest: #2B392C;
+    --color-charcoal: #242D36;
+    --color-earth: #32281F;
+    --color-swan: #FFFFFF;
+    --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  body {
+    font-family: 'Rawline', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-charcoal);
+    background-color: var(--color-limestone);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: 'Recoleta', 'Lora', Georgia, serif;
+    font-feature-settings: "liga" 1, "dlig" 1;
+  }
+
+  .font-accent {
+    font-family: 'Nohemi', 'Plus Jakarta Sans', -apple-system, sans-serif;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* Rich tactile paper-grain texture */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  z-index: 1;
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+}
+
+/* Tactile Plaster & Lime-Wash Surface */
+.plaster-surface {
+  position: relative;
+}
+.plaster-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='limeNoise'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23limeNoise)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Woven Linen Pattern for Material Swatches */
+.linen-pattern {
+  background-image: 
+    linear-gradient(45deg, rgba(36,45,54,0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(36,45,54,0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(36,45,54,0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(36,45,54,0.03) 75%);
+  background-size: 8px 8px;
+}
+
+/* Teak Woodgrain Texture */
+.teak-pattern {
+  background: 
+    repeating-linear-gradient(90deg, rgba(89,33,44,0.08) 0px, rgba(50,40,31,0.04) 2px, transparent 4px, transparent 16px),
+    linear-gradient(to right, #8c5d42, #7a4f37);
+}
+
+/* Brick Pattern Texture */
+.brick-pattern {
+  background: 
+    linear-gradient(335deg, rgba(0,0,0,0.1) 0px, transparent 10px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 12px, rgba(224,217,201,0.2) 13px),
+    #934b3e;
+}
+
+/* Travertine / Limestone Texture */
+.limestone-swatch {
+  background: 
+    radial-gradient(ellipse at top left, rgba(255,255,255,0.4), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(50,40,31,0.03) 0px, rgba(50,40,31,0.03) 2px, transparent 2px, transparent 8px),
+    #d9d1c1;
+}
+
+/* Bronze Brushed Texture */
+.bronze-pattern {
+  background: 
+    repeating-linear-gradient(180deg, rgba(255,255,255,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 2px, transparent 6px),
+    linear-gradient(135deg, #74563a 0%, #593f28 100%);
+}
+
+/* Ambient Dust Particles in Sunlit Room */
+@keyframes floatParticle1 {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-120px) translateX(25px); opacity: 0; }
+}
+
+@keyframes floatParticle2 {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+  30% { opacity: 0.5; }
+  70% { opacity: 0.5; }
+  100% { transform: translateY(-150px) translateX(-30px); opacity: 0; }
+}
+
+@keyframes floatParticle3 {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+  25% { opacity: 0.7; }
+  75% { opacity: 0.7; }
+  100% { transform: translateY(-100px) translateX(40px); opacity: 0; }
+}
+
+@keyframes lightBeamShift {
+  0%, 100% { opacity: 0.15; transform: rotate(-15deg) scaleY(1); }
+  50% { opacity: 0.28; transform: rotate(-13deg) scaleY(1.05); }
+}
+
+@keyframes subtleLinePulse {
+  0%, 100% { transform: scaleY(0.4); transform-origin: top; opacity: 0.3; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+}
+
+@keyframes archStrokeDraw {
+  0% { stroke-dashoffset: 400; opacity: 0.2; }
+  50% { stroke-dashoffset: 0; opacity: 0.5; }
+  100% { stroke-dashoffset: 0; opacity: 0.35; }
+}
+
+.animate-dust-1 {
+  animation: floatParticle1 9s ease-in-out infinite;
+}
+.animate-dust-2 {
+  animation: floatParticle2 12s ease-in-out infinite 2s;
+}
+.animate-dust-3 {
+  animation: floatParticle3 10s ease-in-out infinite 4s;
+}
+
+.animate-light-beam {
+  animation: lightBeamShift 14s ease-in-out infinite;
+}
+
+/* Intersection Observer Scroll Animation System */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

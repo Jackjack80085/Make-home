@@ -1,0 +1,6 @@
+{
+  "name": "MAKE Developers — A Day at Home",
+  "description": "An immersive editorial experience for MAKE Developers. Thoughtful homes, everyday joys, and lived-in beauty inspired by quiet craftsmanship.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
